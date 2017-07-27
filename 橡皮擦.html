@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width:1350px;
+				height: 570px;
+				position: relative;
+			}
+			#box div{
+				width:90px;
+				height: 57px;
+				background: url(images/timg.png) no-repeat;
+				opacity: 0.6;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				top:0;
+				transition: 3s;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			var box = document.getElementById('box');
+			var allDiv = box.getElementsByTagName('div')
+			for (var i = 0; i < 150; i++) {
+				box.innerHTML += '<div style="left:'+(i%15)*90+'px;top:'+Math.floor(i/15)*57+'px;background-position:'+(-(i%15)*90)+'px '+(-(Math.floor(i/15)*57))+'px"></div>'
+			}
+			for (var j =0;j<150;j++) {
+				allDiv[j].onmouseover = function(){
+				this.style.opacity = '1'
+				this.style.transform = 'scale(2)'
+				}
+				allDiv[j].onmouseout = function(){
+				//this.style.opacity = '1'
+				this.style.transform = 'scale(1)'
+				}
+			}
+			
+		</script>
+	</body>
+</html>
